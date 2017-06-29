@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+}
+
+.App-content {
+  text-align: left;
+  padding: 10px;
+  width: 768px;
+  padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+
+.schedule {
+  border: solid 1px grey;
+  text-align: center;
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.schedule th {
+  height: 30px
+}
+
+.schedule td.schedule-day {
+  height: 100px;
+}
+
+.schedule td.day-shift {
+  background-color: lemonchiffon;
+}
+
+.schedule td.day-off {
+  background-color: transparent;
+}
+
+.schedule td .requested-day-off {
+  color: blueviolet;
+}
