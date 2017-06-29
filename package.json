@@ -25,5 +25,6 @@
     "watch:client": "react-scripts start",
     "watch:server": "./node_modules/.bin/nodemon api/app.js"
   },
-  "proxy": "http://localhost:4000"
+  "proxy": "http://localhost:4000",
+  "main": "api/app.js"
 }
