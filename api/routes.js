@@ -1,14 +1,22 @@
 'use strict';
 
-const axios = require('axios');
-const scheduler = require('./scheduler');
 const Joi = require('joi');
+
+const data = require('./data');
+const scheduler = require('./scheduler');
 const config = require('./config.json');
 
 module.exports = [
     {
         method: 'GET',
         path: '/',
+        handler: {
+            file: './build/index.html'
+        }
+    },
+    {
+        method: 'GET',
+        path: '/employee/{id?}',
         handler: {
             file: './build/index.html'
         }
@@ -30,7 +38,7 @@ module.exports = [
         method: 'GET',
         path: '/api/employees',
         handler: function (request, reply) {
-            reply(axios.get('http://interviewtest.replicon.com/employees').then(r => r.data));
+            reply(data.getEmployees());
         }
     },
     {
