@@ -30,7 +30,7 @@ module.exports = {
         }
       }
 
-    // enforce hard constraints
+      // enforce hard constraints
       let enforcedAllConstraints = true;
       for (let i = 0; i < hardConstraintFns.length; i += 1) {
         const f = hardConstraintFns[i](tryCount);
@@ -53,6 +53,8 @@ module.exports = {
         break;
       }
     }
+
+    return true;
   },
 
   /**
