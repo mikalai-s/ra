@@ -1,3 +1,7 @@
 {
-    "ignore": ["build/*.js", "public/*.js", "src/*.js"]
+  "ignore": [
+    "build/*.js",
+    "public/*.js",
+    "src/*.js"
+  ]
 }
