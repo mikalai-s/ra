@@ -1,11 +1,13 @@
 'use strict';
 
 const data = require('./data');
+const constraints = require('./constraints');
+
 
 const EMPLOYEES_PER_SHIFT_RULE_ID = 7;
 
 
-function feature1(weekStart, weekEnd, employees, shiftRules) {
+function feature1(weekStart, weekEnd, employees, shiftRules, timeOffs) {
   const result = {};
 
   let currentEmployeeIndex = -1;
@@ -15,18 +17,16 @@ function feature1(weekStart, weekEnd, employees, shiftRules) {
   for (let w = weekStart; w <= weekEnd; w += 1) {
     const cw = result[w] = [];
 
-    for (let d = 1; d <= 7; d += 1) {
-      cw[d] = [];
-
-      while (true) {
-        currentEmployeeIndex = (currentEmployeeIndex + 1) % employees.length;
-        const ce = employees[currentEmployeeIndex];
-
-        cw[d].push(ce.id);
-        if (cw[d].length >= adjustedEmployeePerShift) {
-          break;
-        }
-      }
+    const res = constraints.applyConstraints(
+      cw,
+      [
+        () => constraints.assumeAllAreOnShift(cw, employees)
+      ],
+      [
+        tryCount => constraints.ensureNumberOfEmployeesPerShift(tryCount, cw, employees, adjustedEmployeePerShift)
+      ]);
+    if (!res) {
+      console.log('Unable to process data');
     }
   }
   return result;

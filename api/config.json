@@ -1,6 +1,6 @@
 {
   "apiPort": 4000,
-  "feature": 4,
+  "feature": 2,
   "startWeek": 23,
   "endWeek": 26
 }
